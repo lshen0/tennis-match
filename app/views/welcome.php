@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body>
+<body text-align="center">
     <h1 class="title"> Assign a matchup </h1>
 
     <form action="team_create.php" method="POST"> 
@@ -64,7 +64,7 @@
             </tr>
             
         </table>
-        <input type="submit" value="Submit">
+        <div class="submit-container"> <input type="submit" value="Submit"> </div>
     </form>
 
 </body>
