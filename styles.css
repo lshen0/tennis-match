@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+body {
+    font-family: 'Inter'
+}
+
+.title {
+    text-align:center
+}
+
+table {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+th {
+    text-align:center
+}
+
+td {
+    vertical-align: top;
+    padding: 15px;
+}
