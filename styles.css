@@ -1,24 +1,50 @@
 @import url('https://fonts.googleapis.com/css?family=Inter');
 
 body {
-    font-family: 'Inter'
+    font-family: 'Inter';
+    padding: 30px;
 }
 
 .title {
-    text-align:center
+    text-align:center;
+    margin-bottom: 20px;
+    color: #046a3a;
+    font-weight: bold;
 }
 
 table {
     width: 100%;
     max-width: 800px;
     margin: auto;
+    border-collapse: collapse;
 }
 
 th {
-    text-align:center
+    text-align:center;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding:10px;
 }
 
 td {
     vertical-align: top;
     padding: 15px;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 20px;
+    text-align: center;
 }

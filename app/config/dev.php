@@ -3,15 +3,13 @@
 define('SPF_BASE_ROOT', 'URL.com'); // TODO
 
 define('SPF_DISPLAY_ERRORS', TRUE);
-define('SPF_ERROR_EMAIL', 'yourEmail@email.com');
+// define('SPF_ERROR_EMAIL', 'yourEmail@email.com');
 
-// TODO: SMTP info?
+// session idle timeout in seconds
+// define('SPF_SESSION_TIMEOUT', '1 HOUR');
 
-// session idle timeout in seconds (?)
-define('SPF_SESSION_TIMEOUT', '1 HOUR');
-
-define('SPF_COOKIE_DOMAIN', 'URL.com'); // TODO
-define('SPF_COOKIE_PATH', '/'); // TODO
+// define('SPF_COOKIE_DOMAIN', 'URL.com');
+// define('SPF_COOKIE_PATH', '/');
 
 // db server connection
 self::$dsn['default'] = array(
@@ -21,12 +19,12 @@ self::$dsn['default'] = array(
 'pass' => 'password' // TODO: ????
 );
 
-define('SPF_TABLE_PREFIX', 'tennis_'); // what does this do
+// define('SPF_TABLE_PREFIX', ''); 
 
-// TODO: custom config options?
-define('SPF_FROM_EMAIL', 'yourEmail@email.com');
-define('SPF_NOTIFICATION_EMAIL', 'yourEmail@email.com');
+// Custom config options
+// define('SPF_FROM_EMAIL', 'yourEmail@email.com');
+// define('SPF_NOTIFICATION_EMAIL', 'yourEmail@email.com');
 
-define('SPF_DATE_FORMAT', 'n/j/y');
-define('SPF_TIME_FORMAT', 'g:i a');
-define('SPF_DATETIME_FORMAT', 'n/j/y g:i a');
+// define('SPF_DATE_FORMAT', 'n/j/y');
+// define('SPF_TIME_FORMAT', 'g:i a');
+// define('SPF_DATETIME_FORMAT', 'n/j/y g:i a');
