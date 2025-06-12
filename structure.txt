@@ -1,0 +1,29 @@
+tennis/
+├── app/
+│   ├── config/
+│   │   ├── config.php
+│   │   ├── db.php
+│   │   └── functions.php ???
+│   ├── controllers/   
+│   │   ├── MatchController.php
+│   │   └── PlayerController.php
+│   ├── layouts/
+│   │   ├── header.php ??
+│   │   ├── footer.php ??? lol
+│   │   └── navigation.php ?? nav/tab bar
+│   ├── models/
+│   │   ├── BaseModel.php -- capitalized because class; base extended by all models
+│   │   ├── Player.php -- capitalized because class
+│   │   ├── Match.php
+│   │   └── ...
+│   └── views/
+│       ├── matches/
+│       │   ├── list.php
+│       │   └── create.php
+│       └── players/
+│           ├── list.php
+│           └── create.php
+└── public/
+    ├── css/
+    ├── js/
+    └── index.php       # Front controller
