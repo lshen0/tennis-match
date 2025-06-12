@@ -1,7 +1,7 @@
 tennis/
 ├── app/
 │   ├── config/
-│   │   ├── config.php
+│   │   ├── config.php ????
 │   │   ├── db.php
 │   │   └── functions.php ???
 │   ├── controllers/   
@@ -23,7 +23,7 @@ tennis/
 │       └── players/
 │           ├── list.php
 │           └── create.php
-└── public/
+└── includes/
     ├── css/
     ├── js/
     └── index.php       # Front controller
