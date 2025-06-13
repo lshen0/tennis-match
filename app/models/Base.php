@@ -8,7 +8,7 @@ class Base {
     protected $conn;
 
     /** 
-     * Stores connection. Inherited by child classes.
+     * Constructor, stores connection. Inherited by all child classes.
      */
     public function __construct() {
         global $conn; // pulled from db.php
@@ -117,7 +117,7 @@ class Base {
     /**
      * Updates a record in a table by id.
      * Example: Updating with the data [ 'name' => 'Nadal', 'rank' => 1 ] in the table 'players'
-     *              is UPDATE players SET name = 'Nadal'  INTO players (name, rank) VALUES (?, ?)
+     *              is UPDATE players SET name = 'Nadal' INTO players (name, rank) VALUES (?, ?)
      */
     public function update($table, $id, $data) {
         $set = implode(', ', array_map(function($col) { 
@@ -132,7 +132,7 @@ class Base {
 
     // For updating -- send a get request for that user to prepopulate, then check what changed???
 
-      // ----------------------------------------- DELETE ---------------------------------------------------
+    // ----------------------------------------- DELETE ---------------------------------------------------
 
     /**
      * Deletes a record in a table by id.

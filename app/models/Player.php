@@ -7,20 +7,28 @@ require_once 'Base.php';
 class Player extends Base {
 	private $table = 'player';
 
-	public function createTeam($data) {
+	public function createPlayer($data) {
 		return $this->create($this->table, $data);
 	}
 
-	public function getTeamById($id) {
+	public function getPlayerById($id) {
 		return $this->getById($this->table, $id);
 	}
 
-	public function getAllTeams() {
+	public function getPlayersByTeam($team) {
+		return $this->getAllByField($this->table, 'team', $team, 's');
+	}
+
+	public function getAllPlayers() {
 		return $this->getAll($this->table);
 	}
 
-	public function updateTeam($id, $data) {
+	public function updatePlayer($id, $data) {
 		return $this->update($this->table, $id, $data);
+	}
+
+	public function deletePlayer($id) {
+		return $this->delete($this->table, $id);
 	}
 }
 
