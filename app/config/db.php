@@ -1,30 +1,22 @@
 <?php
 
 // Load environment variables
-$env = parse_ini_file(__DIR__ . '/../../.env'); 
+$env = parse_ini_file('/../../.env'); 
 
-/** 
- * Connect to database
- */
-function db_connect() {
-    global $env;
+// Create connection to database
+$conn = new mysqli($env['DB_HOST'], $env['DB_USER'], $env['DB_PASS'], $env['DB_NAME']);
 
-    // Create connection -- TODO: check this
-    $conn = new mysqli($env['DB_HOST'], $env['DB_USER'], $env['DB_PASS'], $env['DB_NAME']);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    
-    return $conn;
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
+    
 
 /** 
  * Helper for SQL queries to database
  */
 function db_query($sql) {
-    $conn = db_connect();
+    global $conn;
 
     if ($conn->query($sql) == TRUE) {
         echo "Success!";
@@ -33,5 +25,5 @@ function db_query($sql) {
     }
 
     $conn->close();
-    return $result;  
+    // return $result;  
 }

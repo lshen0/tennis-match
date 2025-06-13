@@ -2,10 +2,10 @@
 require_once 'Base.php';
 
 /**
- * Defines a Player model.
+ * Defines a Team model.
  */
-class Player extends Base {
-	private $table = 'player';
+class Team extends Base {
+	private $table = 'team';
 
 	public function createTeam($data) {
 		return $this->create($this->table, $data);
