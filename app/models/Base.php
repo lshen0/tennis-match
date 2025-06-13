@@ -6,6 +6,7 @@ require_once '../config/db.php';
  */
 class Base {
     protected $conn;
+    protected $table; // defined in child classes
 
     /** 
      * Constructor, stores connection. Inherited by all child classes.
@@ -67,12 +68,12 @@ class Base {
      * Example: Inserting the data [ 'name' => 'Nadal', 'rank' => 1 ] into the table 'players'
      *              is INSERT INTO players (name, rank) VALUES (?, ?)
      */
-    public function create($table, $data) {
+    public function create($data) {
         $columns = implode(', ', array_keys($data));
         $placeholders = implode(', ', array_fill(0, count($data), '?'));
         $types = $this->getTypes(array_values($data)); 
 
-        $sql = "INSERT INTO $table ($columns) VALUES ($placeholders)";
+        $sql = "INSERT INTO {$this->table} ($columns) VALUES ($placeholders)";
         $this->execute($sql, array_values($data), $types);
 
         // Return id of newly created record
@@ -85,8 +86,8 @@ class Base {
     /**
      * Gets a record from a table by ID. Returns null if no record with that ID exists.
      */
-    public function getById($table, $id) {
-        $sql = "SELECT * FROM $table WHERE id = ?";
+    public function getById($id) {
+        $sql = "SELECT * FROM {$this->table} WHERE id = ?";
         $stmt = $this->execute($sql, [$id], 'i');
         $result = $stmt->get_result();
         return $result->fetch_assoc();  
@@ -95,8 +96,8 @@ class Base {
     /**
      * Gets a record from a table by a specified field. Returns null if no records with that field value exist.
      */
-    public function getAllByField($table, $field, $value, $type) {
-        $sql = "SELECT * FROM $table WHERE $field = ?";
+    public function getAllByField($field, $value, $type) {
+        $sql = "SELECT * FROM {$this->table} WHERE $field = ?";
         $stmt = $this->execute($sql, [$value], $type);
         $result = $stmt->get_result();
         return $result->fetch_all();  
@@ -105,8 +106,8 @@ class Base {
     /** 
      * Gets all records from a table.
      */
-    public function getAll($table) {
-        $sql = "SELECT * FROM $table";
+    public function getAll() {
+        $sql = "SELECT * FROM {$this->table}";
         $stmt = $this->execute($sql);
         $result = $stmt->get_result();
         return $result->fetch_all();  
@@ -117,16 +118,16 @@ class Base {
     /**
      * Updates a record in a table by id.
      * Example: Updating with the data [ 'name' => 'Nadal', 'rank' => 1 ] in the table 'players'
-     *              is UPDATE players SET name = 'Nadal' INTO players (name, rank) VALUES (?, ?)
+     *              is UPDATE players SET name = 'Nadal', rank = 1 INTO players (name, rank) VALUES (?, ?)
      */
-    public function update($table, $id, $data) {
+    public function update($id, $data) {
         $set = implode(', ', array_map(function($col) { 
             return "$col = ?"; 
         }, array_keys($data)));  // 'name = ?, rank = ?'
         $types = $this->getTypes(array_values($data)) . 'i'; // WHERE id = ? is i
         $params = array_merge(array_values($data), [$id]);
 
-        $sql = "UPDATE $table SET $set WHERE id = ?";
+        $sql = "UPDATE {$this->table} SET $set WHERE id = ?";
         return $this->execute($sql, $params, $types);
     }
 
@@ -137,8 +138,8 @@ class Base {
     /**
      * Deletes a record in a table by id.
      */
-    public function delete($table, $id) {       
-        $sql = "DELETE FROM $table WHERE id = ?";
+    public function delete($id) {       
+        $sql = "DELETE FROM {$this->table} WHERE id = ?";
         return $this->execute($sql, [$id], 'i');
     }
 }
