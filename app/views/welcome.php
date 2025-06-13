@@ -5,13 +5,13 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../includes/styles.css">
 </head>
 
 <body text-align="center">
     <h1 class="title"> Assign a matchup </h1>
 
-    <form action="../app/views/teams/create.php" method="POST"> 
+    <form action="teams/create.php" method="POST"> 
         <table>
             <tr>
                 <th>Team 1</th>

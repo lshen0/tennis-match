@@ -1,6 +1,8 @@
 <?php
 
-// How do I connect to the database???
+// require_once "../../../";
+
+echo "hello";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // $team1_name = $_POST['team1_name'];
