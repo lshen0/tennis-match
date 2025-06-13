@@ -6,8 +6,6 @@ require_once '../config/db.php';
  */
 class Base {
     protected $conn;
-    protected static $table_name; // defined in child classes
-    protected static $table_pkey = 'id';
 
     /** 
      * Stores connection. Inherited by child classes.
