@@ -1,5 +1,5 @@
 <?php 
-require_once 'Base.php';
+require_once __DIR__ . 'Base.php';
 
 /**
  * Defines a Player model.
@@ -17,6 +17,10 @@ class Player extends Base {
 
 	public function getPlayersByTeam($team) {
 		return $this->getAllByField($this->table, 'team', $team, 's');
+	}
+
+	public function getPlayersByRank($rank) {
+		return $this->getAllByField($this->table, 'rank', $rank, 'i');
 	}
 
 	public function getAllPlayers() {

@@ -1,5 +1,4 @@
 <?php
-echo "hi";
 // Load environment variables
 $env = parse_ini_file(__DIR__ . '/../../.env'); 
 

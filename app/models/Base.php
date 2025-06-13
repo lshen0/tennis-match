@@ -87,7 +87,7 @@ class Base {
      */
     public function getById($table, $id) {
         $sql = "SELECT * FROM $table WHERE id = ?";
-        $stmt = $this->prepareAndExecute($sql, [$id], 'i');
+        $stmt = $this->execute($sql, [$id], 'i');
         $result = $stmt->get_result();
         return $result->fetch_assoc();  
     }
@@ -97,7 +97,7 @@ class Base {
      */
     public function getAllByField($table, $field, $value, $type) {
         $sql = "SELECT * FROM $table WHERE $field = ?";
-        $stmt = $this->prepareAndExecute($sql, [$value], $type);
+        $stmt = $this->execute($sql, [$value], $type);
         $result = $stmt->get_result();
         return $result->fetch_all();  
     }
@@ -107,7 +107,7 @@ class Base {
      */
     public function getAll($table) {
         $sql = "SELECT * FROM $table";
-        $stmt = $this->prepareAndExecute($sql);
+        $stmt = $this->execute($sql);
         $result = $stmt->get_result();
         return $result->fetch_all();  
     }

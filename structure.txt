@@ -5,7 +5,7 @@ tennis/
 │   │   ├── db.php
 │   │   └── functions.php ???
 │   ├── controllers/   
-│   │   ├── MatchController.php
+│   │   ├── MatchupController.php
 │   │   └── PlayerController.php
 │   ├── layouts/
 │   │   ├── header.php ??
@@ -14,10 +14,10 @@ tennis/
 │   ├── models/
 │   │   ├── BaseModel.php -- capitalized because class; base extended by all models
 │   │   ├── Player.php -- capitalized because class
-│   │   ├── Match.php
+│   │   ├── Matchup.php
 │   │   └── ...
 │   └── views/
-│       ├── matches/
+│       ├── matchups/
 │       │   ├── list.php
 │       │   └── create.php
 │       └── players/
