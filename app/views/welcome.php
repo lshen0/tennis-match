@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="../../includes/styles.css">
 </head>
 
-<body text-align="center">
+<body>
     <h1 class="title"> Assign a matchup </h1>
 
-    <form action="teams/create.php" method="POST"> 
+    <form action="../controllers/teams/MatchupController.php" method="POST"> 
         <table>
             <tr>
                 <th>Team 1</th>
@@ -41,7 +41,7 @@
                     <input type="text" id="team2-coach-lname" name="team2_coach_lname" required><br><br>
                     <label for="team2-coach-email">Coach Email:</label>
                     <input type="text" id="team2-coach-email" name="team2_coach_email" required><br><br>
-                    <label for="team2-coach-email">Coach Phone:</label>
+                    <label for="team2-coach-phone">Coach Phone:</label>
                     <input type="text" id="team2-coach-phone" name="team2_coach_phone" required><br><br>
                 </td>
             </tr>

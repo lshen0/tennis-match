@@ -12,21 +12,21 @@ if ($conn->connect_error) {
     echo "connected successfully!";
 }
 
-$conn->close();
+//  $conn->close();
     
 
-/** 
- * Helper for SQL queries to database
- */
-function db_query($sql) {
-    global $conn;
+// /** 
+//  * Helper for SQL queries to database
+//  */
+// function db_query($sql) {
+//     global $conn;
 
-    if ($conn->query($sql) == TRUE) {
-        echo "Success!";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+//     if ($conn->query($sql) == TRUE) {
+//         echo "Success!";
+//     } else {
+//         echo "Error: " . $sql . "<br>" . $conn->error;
+//     }
 
-    $conn->close();
+//     $conn->close();
     // return $result;  
-}
+// }

@@ -1,5 +1,5 @@
 <?php 
-require_once __DIR__ . 'Base.php';
+require_once __DIR__ . '/Base.php';
 
 /**
  * Defines a Matchup model.
@@ -28,7 +28,7 @@ class Matchup extends Base {
 			}
     	}
 
-		return $this->update($this->table, $id, $data);
+		return $this->update($id, $data);
 	}
 }
 
