@@ -26,6 +26,15 @@ th {
     padding:10px;
 }
 
+th.title {
+    color: #046a3a;
+    font-size: 1.5em;
+}
+
+th.subtitle {
+    font-size: 1.2em;
+}
+
 td {
     vertical-align: top;
     padding: 15px;
