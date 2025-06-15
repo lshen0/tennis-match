@@ -21,7 +21,11 @@ $players_team2 = $playerModel->getPlayersByTeam($team2_id);
 
 <!DOCTYPE HTML>
 <html> 
-    <head> <link rel="stylesheet" href="../../includes/styles.css"> </head>
+    
+<head> 
+    <link rel="stylesheet" href="../../includes/styles.css"> 
+</head>
+
 <body> 
 
 </body>
