@@ -1,6 +1,3 @@
-<?php 
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -11,7 +8,7 @@
 <body>
     <h1 class="title"> Assign a matchup </h1>
 
-    <form action="../controllers/teams/MatchupController.php" method="POST"> 
+    <form action="../controllers/TeamController.php" method="POST"> 
         <table>
             <tr>
                 <th>Team 1</th>
