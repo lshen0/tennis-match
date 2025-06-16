@@ -1,4 +1,11 @@
-<?php
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../../includes/styles.css">
+</head>
+
+<body>
 
 // form to create 
 // submit button; <form action="player_ 
