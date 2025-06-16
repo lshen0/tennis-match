@@ -16,7 +16,7 @@
             </tr>
             <tr>
                 <!-- Team 1 -->
-                <td> 
+                <td class="field"> 
                     <label for="team1-name">Team Name:</label>
                     <input type="text" id="team1-name" name="team1_name" required><br><br>
                     <label for="team1-coach-fname">Coach First Name:</label>
@@ -29,7 +29,7 @@
                     <input type="text" id="team1-coach-phone" name="team1_coach_phone" required><br><br>
                 </td>
                 <!-- Team 2 -->
-                <td> 
+                <td class="field"> 
                     <label for="team2-name">Team Name:</label>
                     <input type="text" id="team2-name" name="team2_name" required><br><br>
                     <label for="team2-coach-fname">Coach First Name:</label>

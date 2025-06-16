@@ -100,7 +100,8 @@ class Base {
         $sql = "SELECT * FROM {$this->table} WHERE $field = ?";
         $stmt = $this->execute($sql, [$value], $type);
         $result = $stmt->get_result();
-        return $result->fetch_all();  
+    //    echo var_dumps($result->fetch_all());
+        return $result->fetch_all() ?? [];  
     }
 
     /** 

@@ -15,7 +15,7 @@ tennis/
 │   │   ├── BaseModel.php -- capitalized because class; base extended by all models
 │   │   ├── Player.php -- capitalized because class
 │   │   ├── Matchup.php
-│   │   └── ...
+│   │   └── ...      **** SET TABLENAME MUST BE ESCAPED WITH BACKTICKS (`set`) WHEN SET
 │   └── views/
 │       ├── matchups/
 │       │   ├── list.php

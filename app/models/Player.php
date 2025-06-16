@@ -10,15 +10,15 @@ class Player extends Base {
 	/**
 	 * Get players by team.
 	 */
-	public function getPlayersByTeam($team) {
-		return $this->getAllByField($this->table, 'team', $team, 's');
+	public function getPlayersByTeamId($team_id) {
+		return $this->getAllByField('team_id', $team_id, 'i');
 	}
 
 	/**
 	 * Get players by rank.
 	 */
 	public function getPlayersByRank($rank) {
-		return $this->getAllByField($this->table, 'rank', $rank, 'i');
+		return $this->getAllByField('rank', $rank, 'i');
 	}
 
 }
