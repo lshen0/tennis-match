@@ -71,3 +71,26 @@ input[type="submit"] {
     font-size: 1.1em;
     font-weight: bold;
 }
+
+.circle-button {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 37.5px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    text-decoration: none; /* removes underline */
+    border-radius: 50%; /* makes it a circle */
+    border: none;
+    text-align: center;
+    font-family: 'Inter';
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+
+ul {
+    list-style-type: none;
+}

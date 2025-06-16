@@ -36,6 +36,40 @@ $players_team2 = $playerModel->getPlayersByTeamId($team2_id);
             <td> Coach: <?php echo $team1['coach_fname'] . ' ' . $team1['coach_lname'] . ', ' . $team1['coach_email'] ?></td>
             <td> Coach: <?php echo $team2['coach_fname'] . ' ' . $team2['coach_lname'] . ', ' . $team2['coach_email'] ?></td>
         </tr>
+        <!-- Players -->
+        <tr> 
+            <td>
+                <ul>
+                    <?php if (!empty($players_team1)): 
+                        foreach ($players_team1 as $player): ?>
+                            <li><?php echo $player['lname'] . ', ' . $player['fname']; ?></li>
+                        <?php endforeach; 
+                    else: ?>
+                        <li>No players. Add one below!</li>
+                    <?php endif; ?>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <?php if (!empty($players_team2)): 
+                        foreach ($players_team2 as $player): ?>
+                            <li><?php echo $player['lname'] . ', ' . $player['fname']; ?></li>
+                        <?php endforeach; 
+                    else: ?>
+                        <li>No players. Add one below!</li>
+                    <?php endif; ?>
+                </ul>
+            </td>
+        </tr>
+        <!-- Add Player (only if <7 players) -->
+        <tr>
+            <td>
+                <a href="/app/views/players/create.php?team_id=<?php echo $team1_id;?>" class="circle-button">+</a>
+            </td>
+            <td>
+                <a href="/app/views/players/create.php?team_id=<?php echo $team2_id;?>" class="circle-button">+</a>
+            </td>
+        </tr>
     </table>
 </body>
 
