@@ -1,14 +1,57 @@
+<?php
+require_once __DIR__ . '/../../models/Player.php';
+
+$team_id = (int) $_GET['team_id'];
+
+// Get array of used rankings from this team (to disable creating more players with those rankings)
+$playerModel = new Player();
+$players = $playerModel->getPlayersByTeamId($team_id);
+
+$usedRankings = array_map(function ($player) { return $player['ranking']; }, $players);
+// echo $usedRankings;
+
+?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
-    <link rel="stylesheet" href="../../includes/styles.css">
+    <link rel="stylesheet" href="../../../includes/styles.css">
 </head>
 
 <body>
+    <h1 class="title"> Add player </h1>
 
-// form to create 
-// submit button; <form action="player_ 
-// in the function, create the player and then auto redirect back to player_list
+    <div class="form-container">
+        <form action="../../controllers/PlayerController.php" method="POST">
+            <!-- Hidden input: team_id -->
+            <input type="hidden" name="team_id" value="<?php echo $team_id; ?>">
 
-// cancel button brings you back to player_list
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name="fname" required><br><br>
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lname" required><br><br>
+            <label for="ranking">Ranking:</label>
+            <select name="ranking" id="ranking">   
+                <!-- disable used rankings -->
+                <?php for ($i = 1; $i <= 7; $i++): ?>
+                    <option value="<?php echo $i; ?>" <?php echo in_array($i, $usedRankings) ? 'disabled' : ''; ?>>
+                        <?php echo $i; ?>
+                    </option>
+                <?php endfor; ?>
+            </select><br><br>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email"><br><br>
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone"><br><br>
+
+            <div class="submit-container"> 
+                <input type="submit" value="Add Player"> 
+            </div>
+        </form>
+    </div>
+
+<!-- in the function, create the player and then auto redirect back to player_list, cancel button brings you back to player_list -->
+
+</body>
+</html>

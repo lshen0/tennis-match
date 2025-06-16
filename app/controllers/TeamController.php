@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../models/Team.php';
+session_start();
 
 // TODO - data validation?
 if ($_SERVER["REQUEST_METHOD"] == "POST") { // CREATE
@@ -24,6 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // CREATE
             'coach_email' => $_POST['team2_coach_email'],
             'coach_phone' => $_POST['team2_coach_phone']
         ]);
+
+        $_SESSION['team1_id'] = $team1_id;
+        $_SESSION['team2_id'] = $team2_id;
 
         header("Location: ../views/teams/list.php");
 

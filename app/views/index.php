@@ -44,7 +44,7 @@
             </tr>
         </table>
         <div class="submit-container"> 
-            <input type="submit" value="Submit"> 
+            <input type="submit" value="Add Teams"> 
         </div>
     </form>
 

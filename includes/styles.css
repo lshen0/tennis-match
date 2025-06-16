@@ -32,7 +32,7 @@ th.title {
 }
 
 th.subtitle {
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 td {
@@ -77,7 +77,7 @@ input[type="submit"] {
     width: 40px;
     height: 40px;
     line-height: 37.5px;
-    background-color: #4CAF50;
+    background-color: #046a3a;
     color: white;
     font-size: 24px;
     text-align: center;
@@ -90,7 +90,47 @@ input[type="submit"] {
     font-weight: bold;
 }
 
+.circle-button:hover {
+    background-color: #03814b; 
+    cursor: pointer;
+}
+
 
 ul {
     list-style-type: none;
+    text-align: center;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+form select {
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 1.1em;
+}
+
+.ranking-cell {
+    width: 40px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.edit-button {
+    font-size: 0.9em;
+    padding: 4px 10px;
+    background-color:#046a3a;
+    color: white;
+    border-radius: 4px;
+    /* font-weight: 600; */
+    text-decoration: none;
+}
+
+.edit-button:hover {
+    background-color:#03814b;
+    cursor: pointer;
 }
