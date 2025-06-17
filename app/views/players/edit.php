@@ -1,19 +1,6 @@
 <?php
-require_once __DIR__ . '/../../models/Player.php';
-
-// Load current player information
-$player_id = (int) $_GET['player_id'];
-$playerModel = new Player();
-$player = $playerModel->getById($player_id);
-
-// Load used rankings to prevent reuse
-$players = $playerModel->getPlayersByTeamId($player['team_id']);
-$usedRankings = array_map(function ($player) { return $player['ranking']; }, $players);
-
  // Delete button - TODO
 ?>
-
-
 
 <!DOCTYPE html>
 <html>
@@ -26,8 +13,8 @@ $usedRankings = array_map(function ($player) { return $player['ranking']; }, $pl
     <h1 class="title"> Edit player </h1>
 
     <div class="form-container">
-        <form action="../../controllers/PlayerController.php" method="POST">
-            <!-- Hidden input: id -->
+        <form action="PlayerController.php" method="POST">
+            <!-- Hidden input: id-->
             <input type="hidden" name="id" value="<?php echo $player['id']; ?>">
 
             <label for="fname">First Name:</label>

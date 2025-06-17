@@ -1,15 +1,4 @@
 <?php
-require_once __DIR__ . '/../../models/Player.php';
-
-$team_id = (int) $_GET['team_id'];
-
-// Get array of used rankings from this team (to disable creating more players with those rankings)
-$playerModel = new Player();
-$players = $playerModel->getPlayersByTeamId($team_id);
-
-$usedRankings = array_map(function ($player) { return $player['ranking']; }, $players);
-// echo $usedRankings;
-
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +12,7 @@ $usedRankings = array_map(function ($player) { return $player['ranking']; }, $pl
     <h1 class="title"> Add player </h1>
 
     <div class="form-container">
-        <form action="../../controllers/PlayerController.php" method="POST">
+        <form action="PlayerController.php" method="POST">
             <!-- Hidden input: team_id -->
             <input type="hidden" name="team_id" value="<?php echo $team_id; ?>">
 

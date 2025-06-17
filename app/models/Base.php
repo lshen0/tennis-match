@@ -101,7 +101,7 @@ class Base {
         $stmt = $this->execute($sql, [$value], $type);
         $result = $stmt->get_result();
     //    echo var_dumps($result->fetch_all());
-        return $result->fetch_all(MYSQLI_ASSOC) ?? [];  
+        return $result->fetch_all(MYSQLI_ASSOC);  
     }
 
     /** 
