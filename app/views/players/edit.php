@@ -17,11 +17,11 @@
             <!-- Hidden input: id-->
             <input type="hidden" name="id" value="<?php echo $player['id']; ?>">
 
-            <label for="fname">First Name:</label>
+            <label for="fname">First Name</label>
             <input type="text" id="fname" name="fname" value="<?php echo $player['fname']; ?>"><br><br>
-            <label for="lname">Last Name:</label>
+            <label for="lname">Last Name</label>
             <input type="text" id="lname" name="lname" value="<?php echo $player['lname']; ?>"><br><br>
-            <label for="ranking">Ranking:</label>
+            <label for="ranking">Ranking</label>
             <select name="ranking" id="ranking">   
                 <!-- disable used rankings -->
                 <?php for ($i = 1; $i <= 7; $i++): ?>
@@ -34,13 +34,14 @@
                     </option>
                 <?php endfor; ?>
             </select><br><br>
-            <label for="email">Email:</label>
+            <label for="email">Email</label>
             <input type="text" id="email" name="email" value="<?php echo $player['email'] ?? ''; ?>"><br><br>
-            <label for="phone">Phone:</label>
+            <label for="phone">Phone</label>
             <input type="text" id="phone" name="phone" value="<?php echo $player['phone'] ?? ''; ?>"><br><br>
 
             <div class="submit-container"> 
                 <input type="submit" value="Save Changes"> 
+                <!-- TODO: cancel button -->
             </div>
         </form>
     </div>

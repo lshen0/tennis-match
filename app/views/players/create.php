@@ -16,11 +16,11 @@
             <!-- Hidden input: team_id -->
             <input type="hidden" name="team_id" value="<?php echo $team_id; ?>">
 
-            <label for="fname">First Name:</label>
+            <label for="fname">First Name<span class="required">*</span></label>
             <input type="text" id="fname" name="fname" required><br><br>
-            <label for="lname">Last Name:</label>
+            <label for="lname">Last Name<span class="required">*</span></label>
             <input type="text" id="lname" name="lname" required><br><br>
-            <label for="ranking">Ranking:</label>
+            <label for="ranking">Ranking<span class="required">*</span></label>
             <select name="ranking" id="ranking">   
                 <!-- disable used rankings -->
                 <?php for ($i = 1; $i <= 7; $i++): ?>
@@ -29,13 +29,14 @@
                     </option>
                 <?php endfor; ?>
             </select><br><br>
-            <label for="email">Email:</label>
+            <label for="email">Email</label>
             <input type="text" id="email" name="email"><br><br>
-            <label for="phone">Phone:</label>
+            <label for="phone">Phone</label>
             <input type="text" id="phone" name="phone"><br><br>
 
             <div class="submit-container"> 
                 <input type="submit" value="Add Player"> 
+                <!-- TODO: cancel button -->
             </div>
         </form>
     </div>

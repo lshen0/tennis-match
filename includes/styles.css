@@ -55,13 +55,18 @@ input[type="text"] {
     box-sizing: border-box;
 }
 
+.required {
+    color: red;
+}
+
 .submit-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
-input[type="submit"] {
+input[type="submit"],
+.cancel-button {
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -70,6 +75,12 @@ input[type="submit"] {
     font-family: 'Inter';
     font-size: 1.1em;
     font-weight: bold;
+}
+
+input[type="submit"]:hover,
+.cancel-button:hover {
+    background-color: #03814b;
+    cursor: pointer;
 }
 
 .circle-button {

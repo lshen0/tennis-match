@@ -23,10 +23,9 @@ tennis/
 │       └── players/
 │           ├── list.php
 │           └── create.php
+|       └── index.php 
 └── includes/
-    ├── css/
-    ├── js/
-    └── index.php       # Front controller
+    └── styles.css/
 
 
     Controller structure:
