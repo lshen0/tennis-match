@@ -14,7 +14,7 @@ body {
 
 table {
     width: 100%;
-    max-width: 800px;
+    max-width: 900px;
     margin: auto;
     border-collapse: collapse;
 }
@@ -45,6 +45,14 @@ td.field {
     text-align: left;
 }
 
+/* force fixed width table columns */
+th.subtitle:nth-child(1), td:nth-child(1) { width: 10%; }  /* Ranking */
+th.subtitle:nth-child(2), td:nth-child(2) { width: 30%; }  /* Name */
+th.subtitle:nth-child(3), td:nth-child(3) { width: 20%; }  /* Email */
+th.subtitle:nth-child(4), td:nth-child(4) { width: 20%; }  /* Phone */
+th.subtitle:nth-child(5), td:nth-child(5),
+th.subtitle:nth-child(6), td:nth-child(6) { width: 10%; text-align: center; } /* Action */
+
 label {
     margin-bottom: 5px;
 }
@@ -65,8 +73,7 @@ input[type="text"] {
     margin-top: 20px;
 }
 
-input[type="submit"],
-.cancel-button {
+input[type="submit"] {
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -75,11 +82,30 @@ input[type="submit"],
     font-family: 'Inter';
     font-size: 1.1em;
     font-weight: bold;
+    background-color: initial;
+}
+
+.cancel-button {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 20px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    background-color: initial;
+    border: none;
+    color: black;
+    display: inline-block;
+    user-select: none;
+    text-decoration: none;
+    border: 2px solid black;
 }
 
 input[type="submit"]:hover,
 .cancel-button:hover {
-    background-color: #03814b;
+    background-color: #dadada;
     cursor: pointer;
 }
 
@@ -134,14 +160,28 @@ form select {
 .edit-button {
     font-size: 0.9em;
     padding: 4px 10px;
+    background-color: #046a3a;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    border: none;
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+}
+
+.generate-button {
+    font-size: 1.15em;
+    padding: 8px 16px;
     background-color:#046a3a;
     color: white;
     border-radius: 4px;
     /* font-weight: 600; */
     text-decoration: none;
+    text-align: center;
 }
 
-.edit-button:hover {
+.edit-button:hover,
+.generate-button:hover {
     background-color:#03814b;
     cursor: pointer;
 }

@@ -35,8 +35,8 @@
             <input type="text" id="phone" name="phone"><br><br>
 
             <div class="submit-container"> 
+                <a href="../controllers/TeamController.php?action=list" class="cancel-button">Cancel</a>
                 <input type="submit" value="Add Player"> 
-                <!-- TODO: cancel button -->
             </div>
         </form>
     </div>

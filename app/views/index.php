@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <h1 class="title"> Assign a matchup </h1>
+    <h1 class="title"> Assign teams </h1>
 
     <form action="../controllers/TeamController.php" method="POST"> 
         <table>

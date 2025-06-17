@@ -31,8 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             }, $players);
             include '../views/players/create.php';
             break;
-        case 'list':
-            include '../views/teams/list.php';
+        case 'list': // READ
+            include '../views/teams/list.php'; 
             break;
             
 
@@ -59,6 +59,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $playerModel->update($id, $data); // UPDATE
             } else {
                 $playerModel->create($data); // CREATE
+            }
+
+            header("Location: TeamController.php?action=list");
+            break;
+        case 'delete':
+            $id = $_POST['id'] ?? null;
+
+            if ($id) {
+                $playerModel->delete($id); // DELETE
             }
 
             header("Location: TeamController.php?action=list");

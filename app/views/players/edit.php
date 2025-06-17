@@ -40,8 +40,8 @@
             <input type="text" id="phone" name="phone" value="<?php echo $player['phone'] ?? ''; ?>"><br><br>
 
             <div class="submit-container"> 
+                <a href="../controllers/TeamController.php?action=list" class="cancel-button">Cancel</a>
                 <input type="submit" value="Save Changes"> 
-                <!-- TODO: cancel button -->
             </div>
         </form>
     </div>
