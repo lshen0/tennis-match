@@ -5,7 +5,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="../../../includes/styles.css">
+    <link rel="stylesheet" href="../../includes/styles.css">
 </head>
 
 <body>

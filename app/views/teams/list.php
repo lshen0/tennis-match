@@ -2,7 +2,7 @@
 <html> 
 
 <head> 
-    <link rel="stylesheet" href="../../../includes/styles.css"> 
+    <link rel="stylesheet" href="../../includes/styles.css"> 
 </head>
 
 <body> 
@@ -89,11 +89,11 @@
                 <tr>
                     <td class="ranking-cell"><?php echo $player['ranking']; ?></td>
                     <td><?php echo $player['lname'] . ', ' . $player['fname']; ?></td>
-                    <td>
-                        <a href="../controllers/PlayerController.php?action=edit&id=<?php echo $player['id'];?>" class="circle-button">+</a>
-                    </td>
                     <td><?php echo $player['email']; ?></td>
                     <td><?php echo $player['phone']; ?></td>
+                    <td>
+                        <a href="../controllers/PlayerController.php?action=edit&id=<?php echo $player['id']; ?>" class="edit-button">EDIT</a>
+                    </td>
                 </tr>
             <?php endforeach; 
         else: ?>
@@ -106,7 +106,7 @@
         <?php if (count($players_team2) < 7): ?>
             <tr>
                 <td colspan="5">
-                    <a href="../controllers/PlayerController.php?action=edit&team_id=<?php echo $team2_id;?>" class="circle-button">+</a>
+                    <a href="../controllers/PlayerController.php?action=create&team_id=<?php echo $team2_id;?>" class="circle-button">+</a>
                 </td>
             </tr>
         <?php endif; ?>

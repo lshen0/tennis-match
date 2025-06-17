@@ -29,7 +29,7 @@ tennis/
     └── index.php       # Front controller
 
 
-    Controller strucutre:
+    Controller structure:
     <?php
 require_once __DIR__ . '/../models/Player.php';
 

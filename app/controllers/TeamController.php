@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-// ------------------- POST requests -------------------
+// ------------------- GET requests -------------------
 if ($_SERVER["REQUEST_METHOD"] == "GET") { 
     $action = $_GET['action'] ?? '';
 
