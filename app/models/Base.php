@@ -74,10 +74,16 @@ class Base {
         $types = $this->getTypes(array_values($data)); 
 
         $sql = "INSERT INTO {$this->table} ($columns) VALUES ($placeholders)";
-        $this->execute($sql, array_values($data), $types);
 
-        // Return id of newly created record
-        return $this->conn->insert_id; 
+        try {
+            $this->execute($sql, array_values($data), $types);
+
+            // Return id of newly created record
+            return $this->conn->insert_id; 
+        } catch (Exception $e) {
+            echo "create failed: " . $e->getMessage();
+            exit;
+        }
 
     }
 

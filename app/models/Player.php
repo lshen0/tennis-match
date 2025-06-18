@@ -15,10 +15,13 @@ class Player extends Base {
 	}
 
 	/**
-	 * Get players by rank.
+	 * Get a player by a particular team and ranking.
 	 */
-	public function getPlayersByRank($rank) {
-		return $this->getAllByField('rank', $rank, 'i');
+	public function getPlayerByTeamAndRanking($team_id, $ranking) {
+		$sql = "SELECT * FROM $this->table WHERE team_id = ? AND ranking = ?";
+		$stmt = $this->execute($sql, [$team_id, $ranking], 'ii');
+		$result = $stmt->get_result();
+		return $result->fetch_assoc();
 	}
 
 }

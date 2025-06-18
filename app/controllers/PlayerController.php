@@ -1,7 +1,5 @@
 <?php
-require_once __DIR__ . '/../models/Team.php';
 require_once __DIR__ . '/../models/Player.php';
-$teamModel = new Team();
 $playerModel = new Player();
 session_start();
 

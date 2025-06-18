@@ -5,7 +5,7 @@ require_once __DIR__ . '/Base.php';
  * Defines a Matchup model.
  */
 class Matchup extends Base {
-	protected $table = 'match';
+	protected $table = 'matchup';
 
 	/**
 	 * Get matchup by player id (player may be registered as either player 1 or player 2).
