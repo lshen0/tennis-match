@@ -1,7 +1,3 @@
-<?php
- // Delete button - TODO
-?>
-
 <!DOCTYPE html>
 <html>
 
