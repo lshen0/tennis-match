@@ -27,7 +27,7 @@
                 <?php for ($i = 1; $i <= 7; $i++): ?>
                     <?php
                         $selected = ($player['ranking'] == $i) ? 'selected' : '';
-                        $disabled = (in_array($i, $usedRankings) && $player['ranking'] != $i) ? 'disabled' : ''; 
+                        $disabled = (in_array($i, $used_rankings) && $player['ranking'] != $i) ? 'disabled' : ''; 
                     ?>
                     <option value="<?php echo $i; ?>" <?php echo $selected . ' ' . $disabled; ?>>
                         <?php echo $i; ?>

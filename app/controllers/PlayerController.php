@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $id = (int) $_GET['id'];
             $player = $playerModel->getById($id);
             $players = $playerModel->getPlayersByTeamId($player['team_id']);
-            $usedRankings = array_map(function ($p) {
+            $used_rankings = array_map(function ($p) {
                 return $p['ranking'];
             }, $players);
             include '../views/players/edit.php';
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         case 'create': // show create form
             $team_id = (int) $_GET['team_id'];
             $players = $playerModel->getPlayersByTeamId($team_id);
-            $usedRankings = array_map(function ($p) {
+            $used_rankings = array_map(function ($p) {
                 return $p['ranking'];
             }, $players);
             include '../views/players/create.php';

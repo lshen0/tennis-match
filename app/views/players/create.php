@@ -24,7 +24,7 @@
             <select name="ranking" id="ranking">   
                 <!-- disable used rankings -->
                 <?php for ($i = 1; $i <= 7; $i++): ?>
-                    <option value="<?php echo $i; ?>" <?php echo in_array($i, $usedRankings) ? 'disabled' : ''; ?>>
+                    <option value="<?php echo $i; ?>" <?php echo in_array($i, $used_rankings) ? 'disabled' : ''; ?>>
                         <?php echo $i; ?>
                     </option>
                 <?php endfor; ?>
