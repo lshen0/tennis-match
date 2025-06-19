@@ -17,7 +17,7 @@ class Set extends Base {
 	/**
 	 * Get sets by matchup id and winner number.
 	 */
-	public function getSetByMatchupAndWinner($matchup_id, $winner) {
+	public function getSetsByMatchupAndWinner($matchup_id, $winner) {
 		$sql = "SELECT * FROM $this->table WHERE matchup_id = ? AND winner = ?";
 		$stmt = $this->execute($sql, [$matchup_id, $winner], 'ii');
 		$result = $stmt->get_result();
