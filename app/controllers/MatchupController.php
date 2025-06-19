@@ -17,6 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     switch ($action) {
         case 'generate':
+            if (isset($_SESSION['matchupsGenerated']) && $_SESSION['matchupsGenerated']) {
+                echo "You have already generated matchups. Please return to the team view and reload.<br>";
+                exit;
+            }
             $team1_id = $_SESSION['team1_id'];
             $team2_id = $_SESSION['team2_id'];
             $matchup_ids = []; // array of newly generated matchup ids
@@ -49,26 +53,35 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
                 $matchup_ids[] = $matchup_id;
             }
-            $_SESSION['matchup_ids'] = $ids;
+            $_SESSION['matchup_ids'] = $matchup_ids;
+            $_SESSION['matchupsGenerated'] = true;
 
-            header("Location: TeamController.php?action=list");
+            header("Location: MatchupController.php?action=list");
             break;
         
         case 'list':
             $team1 = $teamModel->getById($_SESSION['team1_id']);
             $team2 = $teamModel->getById($_SESSION['team2_id']);
 
-            $ids = $_SESSION['matchup_ids'] ?? [];
+            $matchup_ids = $_SESSION['matchup_ids'] ?? [];
+            // echo "ids " . var_dump($matchup_ids);
 
-            $matchups = array_map(function ($id) use ($matchupModel, $playerModel) {
+            $matchups = array_map(function ($id) use ($matchupModel, $playerModel, $setModel) {
                 $matchup = $matchupModel->getById($id);
                 // Add player names for displaying
                 $player1 = $playerModel->getById($matchup['player1_id']);
                 $player2 = $playerModel->getById($matchup['player2_id']);
                 $matchup['player1_name'] = $player1['lname'] . ", " . $player1['fname'];
                 $matchup['player2_name'] = $player2['lname'] . ", " . $player2['fname'];
+                // Add sets and score
+                $sets = $setModel->getSetsByMatchup($id);
+                $scoreArray = [];
+                foreach ($sets as $set) {
+                    $scoreArray[] = $set['player1_games'] . "-" . $set['player2_games'];
+                }
+                $matchup['score'] = implode(", ", $scoreArray);
                 return $matchup;
-            }, $ids);
+            }, $matchup_ids);
 
             // var_dump($matchups);
 

@@ -11,7 +11,7 @@ class Game extends Base {
 	 * Get game by set id.
 	 */
 	public function getGameBySet($set_id) {
-		return $this->getAllByField('set_id', $game_id, 'i');
+		return $this->getAllByField('set_id', $set_id, 'i');
 	}
 
 	/**
@@ -23,5 +23,15 @@ class Game extends Base {
 		$result = $stmt->get_result();
 		return $result->fetch_all(MYSQLI_ASSOC);
 	}
-}
 
+	/**
+	 * Increase a game score by one point for a particular player (identified as either 1 or 2).
+	 */
+	public function incrementPointsForPlayer($id, $player_number) {
+		if ($player_number == 1) {
+			return $this->update($id, ['player1_points' => 'player1_points + 1']);
+		} elseif ($player_number == 2) {
+			return $this->update($id, ['player2_points' => 'player2_points + 1']);
+		}
+	}
+}

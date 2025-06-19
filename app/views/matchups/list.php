@@ -26,13 +26,15 @@
             <td class="ranking-cell"><?php echo $i+1; ?></td>
             <td><?php echo $matchup['player1_name']; ?></td>
             <td><?php echo $matchup['player2_name']; ?></td>
-            <td> CURR SCORE HERE </td>
+            <td><?php echo $matchup['score'] ?? "-"; ?></td>
             <td>
                 <a href="../controllers/MatchupController.php?action=scorekeep&id=<?php echo $matchup['id']; ?>" class="edit-button">Scorekeep</a>
             </td>
             <td>
-                <?php if ($matchup['winner']): 
-                        echo $matchup['winner'];
+                <?php if ($matchup['winner'] == '1'): 
+                        echo $team1['name'];
+                elseif ($matchup['winner'] == '2'):
+                    echo $team2['name'];
                 else:
                     echo "Match still ongoing!"; 
                 endif; ?>

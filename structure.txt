@@ -98,3 +98,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
     }
 }
+
+TODO: use bootstrap for form validation
