@@ -10,9 +10,9 @@ class Matchup extends Base {
 	/**
 	 * Get matchup by player id (player may be registered as either player 1 or player 2).
 	 */
-	public function getMatchupByPlayerId($playerId) {
+	public function getMatchupByPlayerId($player_id) {
 		$sql = "SELECT * FROM $this->table WHERE player1_id = ? OR player2_id = ?";
-		$stmt = $this->execute($sql, [$playerId, $playerId], 'ii');
+		$stmt = $this->execute($sql, [$player_id, $player_id], 'ii');
 		$result = $stmt->get_result();
 		return $result->fetch_assoc();
 	}

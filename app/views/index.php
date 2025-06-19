@@ -9,10 +9,7 @@
 
 <body>
     <h1 class="title"> Assign teams </h1>
-    <div class="alert alert-primary" role="alert">
-        A simple primary alert—check it out!
-    </div>
-
+    
     <form action="../controllers/TeamController.php" method="POST"> 
         <table>
             <tr>
