@@ -1,10 +1,12 @@
 <?php
 require_once __DIR__ . '/../models/Matchup.php';
 require_once __DIR__ . '/../models/Set.php';
+require_once __DIR__ . '/../models/Game.php';
 require_once __DIR__ . '/../models/Player.php';
 require_once __DIR__ . '/../models/Team.php';
 $matchupModel = new Matchup(); 
 $setModel = new Set();
+$gameModel = new Game();
 $playerModel = new Player();
 $teamModel = new Team();
 session_start();
@@ -17,14 +19,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         case 'generate':
             $team1_id = $_SESSION['team1_id'];
             $team2_id = $_SESSION['team2_id'];
-            $ids = []; // array of newly generated matchup ids
+            $matchup_ids = []; // array of newly generated matchup ids
 
             for ($ranking = 1; $ranking <= 7; $ranking++) {
                 $player1 = $playerModel->getPlayerByTeamAndRanking($team1_id, $ranking);
                 $player2 = $playerModel->getPlayerByTeamAndRanking($team2_id, $ranking);
                 
                 // Matchup generation
-                $id = $matchupModel->create([
+                $matchup_id = $matchupModel->create([
                     'player1_id' => $player1['id'],
                     'player2_id' => $player2['id'],
                     'player1_sets' => 0,
@@ -32,16 +34,20 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 ]);
 
                 // First set generation
-                $setModel->create([
-                    'matchup_id' => $id, // newly made match
+                $set_id = $setModel->create([
+                    'matchup_id' => $matchup_id, // newly made match
                     'player1_games' => 0,
                     'player2_games' => 0
                 ]);
 
                 // First game generation
-                
+                $gameModel->create([
+                    'set_id' => $set_id, // newly made set
+                    'player1_points' => 0,
+                    'player2_points' => 0
+                ]);
 
-                $ids[] = $id;
+                $matchup_ids[] = $matchup_id;
             }
             $_SESSION['matchup_ids'] = $ids;
 
