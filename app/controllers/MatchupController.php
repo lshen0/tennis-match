@@ -89,6 +89,39 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             break;
 
         case 'scorekeep': // show scorekeeping view
+            $id = $_GET['id'];
+
+            // TODO -- implement with SQL join?
+            $matchup = $matchupModel->getById($id);
+            $player1 = $playerModel->getById($matchup['player1_id']);
+            $player2 = $playerModel->getById($matchup['player2_id']);
+            $team1 = $teamModel->getById($_SESSION['team1_id']);
+            $team2 = $teamModel->getById($_SESSION['team2_id']);
+            $sets = $setModel->getSetsByMatchup($id);
+            $current_set = end($sets);
+            $games = $gameModel->getGamesBySet($current_set['id']);
+            $current_game = end($games);
+
+            function displayPoints(int $playerPoints, int $opponentPoints) {
+                if ($playerPoints >= 3 && $opponentPoints >= 3) {
+                    if ($playerPoints == $opponentPoints) {
+                        return "40"; // Deuce, so both players display 40
+                    } elseif ($playerPoints == $opponentPoints + 1) {
+                        return "AD"; 
+                    } elseif ($opponentPoints == $playerPoints + 1) {
+                        return " ";
+                    }
+                } else {
+                    switch ($playerPoints) {
+                        case 0: return "0";
+                        case 1: return "15";
+                        case 2: return "30";
+                        case 3: return "40";
+                    }
+                }
+                
+            }
+
             include '../views/matchups/scorekeep.php';
             break;
     }

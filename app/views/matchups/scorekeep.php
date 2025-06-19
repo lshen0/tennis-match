@@ -8,7 +8,22 @@
 </head>
 
 <body>
-    scorekeeping page
+    <!-- top section -->
+    <table>
+        <tr>
+            <td> <?php echo $player1['lname']; ?> </td>
+            <td> <?php echo $player2['lname']; ?> </td>
+        </tr>
+        <tr>
+            <td> <?php echo $team1['name']; ?> </td>
+            <td> <?php echo $team2['name']; ?> </td>
+        </tr>
+        <tr>
+            <td> <?php echo displayPoints($current_game['player1_points'], $current_game['player2_points']); ?> </td>
+            <td> <?php echo displayPoints($current_game['player2_points'], $current_game['player1_points']); ?> </td>
+        </tr>
+    </table>
+
 </body>
 
 </html>

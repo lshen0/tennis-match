@@ -8,9 +8,9 @@ class Game extends Base {
 	protected $table = 'game';
 
 	/**
-	 * Get game by set id.
+	 * Get games by set id.
 	 */
-	public function getGameBySet($set_id) {
+	public function getGamesBySet($set_id) {
 		return $this->getAllByField('set_id', $set_id, 'i');
 	}
 
