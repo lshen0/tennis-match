@@ -1,55 +1,74 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <link rel="stylesheet" href="../../includes/styles.css">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-
 <body>
-    <h1 class="title"> Assign teams </h1>
-    
-    <form action="../controllers/TeamController.php" method="POST"> 
-        <table>
-            <tr>
-                <th>Team 1</th>
-                <th>Team 2</th>
-            </tr>
-            <tr>
+    <div class="container my-5">
+        <h1 class="mb-4 text-center title">Assign teams</h1>
+
+        <div class="mb-5"></div>
+        
+        <form action="../controllers/TeamController.php" method="POST">
+            <div class="row">
                 <!-- Team 1 -->
-                <td class="field"> 
-                    <label for="team1-name">Team Name<span class="required">*</span></label>
-                    <input type="text" id="team1-name" name="team1_name" required><br><br>
-                    <label for="team1-coach-fname">Coach First Name<span class="required">*</span></label>
-                    <input type="text" id="team1-coach-fname" name="team1_coach_fname" required><br><br>
-                    <label for="team1-coach-lname">Coach Last Name<span class="required">*</span></label>
-                    <input type="text" id="team1-coach-lname" name="team1_coach_lname" required><br><br>
-                    <label for="team1-coach-email">Coach Email<span class="required">*</span></label>
-                    <input type="text" id="team1-coach-email" name="team1_coach_email" required><br><br>
-                    <label for="team1-coach-phone">Coach Phone<span class="required">*</span></label>
-                    <input type="text" id="team1-coach-phone" name="team1_coach_phone" required><br><br>
-                </td>
+                <div class="col-md-6">
+                    <h5>Team 1</h5>
+                    <div class="mb-3">
+                        <label for="team1-name" class="form-label">Team Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="team1-name" name="team1_name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="team1-coach-fname" class="form-label">Coach First Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="team1-coach-fname" name="team1_coach_fname" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="team1-coach-lname" class="form-label">Coach Last Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="team1-coach-lname" name="team1_coach_lname" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="team1-coach-email" class="form-label">Coach Email <span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="team1-coach-email" name="team1_coach_email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="team1-coach-phone" class="form-label">Coach Phone <span class="text-danger">*</span></label>
+                        <input type="tel" class="form-control" id="team1-coach-phone" name="team1_coach_phone" required>
+                    </div>
+                </div>
+
                 <!-- Team 2 -->
-                <td class="field"> 
-                    <label for="team2-name">Team Name<span class="required">*</span></label>
-                    <input type="text" id="team2-name" name="team2_name" required><br><br>
-                    <label for="team2-coach-fname">Coach First Name<span class="required">*</span></label>
-                    <input type="text" id="team2-coach-fname" name="team2_coach_fname" required><br><br>
-                    <label for="team2-coach-lname">Coach Last Name<span class="required">*</span></label>
-                    <input type="text" id="team2-coach-lname" name="team2_coach_lname" required><br><br>
-                    <label for="team2-coach-email">Coach Email<span class="required">*</span></label>
-                    <input type="text" id="team2-coach-email" name="team2_coach_email" required><br><br>
-                    <label for="team2-coach-phone">Coach Phone<span class="required">*</span></label>
-                    <input type="text" id="team2-coach-phone" name="team2_coach_phone" required><br><br>
-                </td>
-            </tr>
-        </table>
-        <div class="submit-container"> 
-            <input type="submit" value="Add Teams"> 
-        </div>
-    </form>
+                <div class="col-md-6">
+                    <h5>Team 2</h5>
+                    <div class="mb-3">
+                        <label for="team2-name" class="form-label">Team Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="team2-name" name="team2_name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="team2-coach-fname" class="form-label">Coach First Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="team2-coach-fname" name="team2_coach_fname" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="team2-coach-lname" class="form-label">Coach Last Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="team2-coach-lname" name="team2_coach_lname" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="team2-coach-email" class="form-label">Coach Email <span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="team2-coach-email" name="team2_coach_email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="team2-coach-phone" class="form-label">Coach Phone <span class="text-danger">*</span></label>
+                        <input type="tel" class="form-control" id="team2-coach-phone" name="team2_coach_phone" required>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Submit -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-success py-3" style="width: 150px">Add Teams</button>
+            </div>
+        </form>
+    </div>
 </body>
-
 </html>

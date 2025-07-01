@@ -31,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $_SESSION['team1_id'] = $team1_id;
             $_SESSION['team2_id'] = $team2_id;
+            $_SESSION['matchupsGenerated'] = false;
 
             header("Location: TeamController.php?action=list");
             break;

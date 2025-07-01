@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             break;
 
         case 'scorekeep': // show scorekeeping view
-            $id = $_GET['id'];
+            $id = $_GET['id']; // matchup id
 
             // TODO -- implement with SQL join?
             $matchup = $matchupModel->getById($id);
