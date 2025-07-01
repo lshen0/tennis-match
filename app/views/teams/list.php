@@ -140,7 +140,7 @@
     <div class="submit-container">
         <?php
             if (count($players_team1) == 7 && count($players_team2) == 7): 
-                if (!$_SESSION['matchupsGenerated']): ?>
+                if (!isset($_SESSION['matchupsGenerated'])): ?>
                 <a href="../controllers/MatchupController.php?action=generate" class="generate-button" 
                     onclick="return confirm('Ready to generate matchups? This will pair players on opposite teams who share the same ranking. You CANNOT change player rankings after generating matchups!');">
                     Generate Matchups!

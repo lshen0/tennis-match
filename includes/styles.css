@@ -39,6 +39,7 @@ td {
     vertical-align: top;
     padding: 15px;
     text-align: center;
+    white-space: nowrap;
 }
 
 td.field {
@@ -184,4 +185,21 @@ form select {
 .generate-button:hover {
     background-color:#03814b;
     cursor: pointer;
+}
+
+.player-name {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.team-name {
+    font-size: 0.9em;
+    color: #575757;
+}
+
+
+.score {
+    font-size: 1.4em;
+    color: #046a3a;
+    font-weight: bold;
 }
