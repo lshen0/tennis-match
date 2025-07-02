@@ -138,7 +138,14 @@ class Base {
         return $this->execute($sql, $params, $types);
     }
 
-    // For updating -- send a get request for that user to prepopulate, then check what changed???
+    /**
+     * Increment a particular column for a record in table.
+     */
+    public function increment($id, $col) {
+		$sql = "UPDATE $this->table SET $col = $col + 1 WHERE id = ?";
+		$this->execute($sql, [$id], 'i');
+		return true;
+    }
 
     // ----------------------------------------- DELETE ---------------------------------------------------
 

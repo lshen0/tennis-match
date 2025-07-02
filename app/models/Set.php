@@ -28,11 +28,10 @@ class Set extends Base {
 	 * Increase a set score by one game for a particular player (identified as either 1 or 2).
 	 */
 	public function incrementGamesForPlayer($id, $player_number) {
-		if ($player_number == 1) {
-			return $this->update($id, ['player1_games' => 'player1_games + 1']);
-		} elseif ($player_number == 2) {
-			return $this->update($id, ['player2_games' => 'player2_games + 1']);
-		}
+		$col = $player_number == 1 ? 'player1_points' : 'player2_points';
+		$sql = "UPDATE $this->table SET $col = $col + 1 WHERE id = ?";
+		$this->execute($sql, [$id], 'i');
+		return true;
 	}
-}
 
+}

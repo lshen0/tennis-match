@@ -8,37 +8,51 @@
 </head>
 
 <body>
-    <h1 class="title"> Add player </h1>
+    <div class="container mt-5" style="max-width:500px;">
+        <h1 class="mb-4 text-center title">Add Player</h1>
 
-    <div class="form-container">
         <form action="PlayerController.php" method="POST">
             <!-- Hidden input: team_id -->
             <input type="hidden" name="team_id" value="<?php echo $team_id; ?>">
 
-            <label for="fname">First Name<span class="required">*</span></label>
-            <input type="text" id="fname" name="fname" required><br><br>
-            <label for="lname">Last Name<span class="required">*</span></label>
-            <input type="text" id="lname" name="lname" required><br><br>
-            <label for="ranking">Ranking<span class="required">*</span></label>
-            <select name="ranking" id="ranking">   
-                <!-- disable used rankings -->
-                <?php for ($i = 1; $i <= 7; $i++): ?>
-                    <option value="<?php echo $i; ?>" <?php echo in_array($i, $used_rankings) ? 'disabled' : ''; ?>>
-                        <?php echo $i; ?>
-                    </option>
-                <?php endfor; ?>
-            </select><br><br>
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email"><br><br>
-            <label for="phone">Phone</label>
-            <input type="text" id="phone" name="phone"><br><br>
+            <div class="mb-3">
+                <label for="fname" class="form-label">First Name<span class="text-danger">*</span></label>
+                <input type="text" id="fname" name="fname" class="form-control" required>
+            </div>
 
-            <div class="submit-container"> 
-                <a href="../controllers/TeamController.php?action=list" class="cancel-button">Cancel</a>
-                <input type="submit" value="Add Player"> 
+            <div class="mb-3">
+                <label for="lname" class="form-label">Last Name<span class="text-danger">*</span></label>
+                <input type="text" id="lname" name="lname" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="ranking" class="form-label">Ranking<span class="text-danger">*</span></label>
+                <select name="ranking" id="ranking" class="form-select" required>
+                    <!-- disable used rankings -->
+                    <?php for ($i = 1; $i <= 7; $i++): ?>
+                        <option value="<?php echo $i; ?>" <?php echo in_array($i, $used_rankings) ? 'disabled' : ''; ?>>
+                            <?php echo $i; ?>
+                        </option>
+                    <?php endfor; ?>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" id="phone" name="phone" class="form-control">
+            </div>
+
+            <div class="d-flex justify-content-around">
+                <a href="../controllers/TeamController.php?action=list" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-success">Add Player</button>
             </div>
         </form>
     </div>
-
 </body>
+
 </html>

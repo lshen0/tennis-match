@@ -66,7 +66,9 @@
 
             <!-- Submit -->
             <div class="text-center mt-4">
-                <button type="submit" class="btn btn-success py-3" style="width: 150px">Add Teams</button>
+                <button type="submit" class="btn btn-success py-3" style="width: 150px;" onclick="return confirm('Ready to add these teams? You cannot edit teams after this point!')">
+                    Add Teams
+                </button>
             </div>
         </form>
     </div>

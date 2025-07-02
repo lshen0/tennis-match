@@ -98,23 +98,33 @@
         </tbody>
     </table>
 
-    <div class="mb-4"></div>
+    <div class="mb-5"></div>
 
     <!-- Scorekeeping Buttons -->
     <div class="container text-center" style="max-width: 750px;">
-        <a type="button" class="btn btn-success me-2 py-3" style="width: 300px;" href="MatchupController.php?action=point&player_id=<?php echo $player1['id'];?>">
-            Point for <?php echo $player1['lname']; ?>
-        </a>
-        <a type="button" class="btn btn-success py-3" style="width: 300px;" href="MatchupController.php?action=point&player_id=<?php echo $player2['id'];?>">
-            Point for <?php echo $player2['lname']; ?>
-        </a>
+        <form action="MatchupController.php" method="POST" style="display:inline;"> 
+            <input type="hidden" name="action" value="point">
+            <input type="hidden" name="player" value="1">
+            <input type="hidden" name="game_id" value="<?php echo $current_game['id']; ?>">
+            <button type="submit" class="btn btn-success me-2 py-3" style="width: 300px;"> 
+                Point for <?php echo $player1['lname']; ?>
+            </button>
+        </form>
+        <form action="MatchupController.php" method="POST" style="display:inline;"> 
+            <input type="hidden" name="action" value="point">
+            <input type="hidden" name="player" value="2">
+            <input type="hidden" name="game_id" value="<?php echo $current_game['id']; ?>">
+            <button type="submit" class="btn btn-success me-2 py-3" style="width: 300px;"> 
+                Point for <?php echo $player2['lname']; ?>
+            </button>
+        </form>
     </div>
 
     <div class="mb-5"></div>
 
     <!-- Return Button -->
     <div class="container text-center" style="max-width: 750px;">
-        <a type="button" class="btn btn-outline-secondary me-2 py-2" style="width: 200px;" href="MatchupController.php?action=list">
+        <a type="button" class="btn btn-secondary me-2 py-2" style="width: 200px;" href="MatchupController.php?action=list">
             Return to all matchups
         </a>
     </div>

@@ -1,4 +1,9 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+?>
+
+<?php
 require_once __DIR__ . '/../models/Matchup.php';
 require_once __DIR__ . '/../models/Set.php';
 require_once __DIR__ . '/../models/Game.php';
@@ -98,6 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $team1 = $teamModel->getById($_SESSION['team1_id']);
             $team2 = $teamModel->getById($_SESSION['team2_id']);
             $sets = $setModel->getSetsByMatchup($id);
+            $previous_sets = array_slice($sets, 0, -1);
             $current_set = end($sets);
             $games = $gameModel->getGamesBySet($current_set['id']);
             $current_game = end($games);
@@ -123,6 +129,64 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             }
 
             include '../views/matchups/scorekeep.php';
+            break;
+    }
+}
+
+// ------------------- POST requests -------------------
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $action = $_POST['action'] ?? 'point';
+    $player = $_POST['player']; // either 1 or 2
+    $game_id = $_POST['game_id'];
+    // Figure out matchup id
+    $current_game = $gameModel->getById($game_id);
+    $set_id = $current_game['set_id'];
+    $current_set = $setModel->getById($set_id);
+    $current_matchup = $matchupModel->getById($current_set['matchup_id']);
+    $matchup_id = $current_matchup['id'];
+
+    switch($action) {
+        case 'point':
+            if ($player == 1) {
+                $gameModel->increment($game_id, 'player1_points');
+            } elseif ($player == 2) {
+                $gameModel->increment($game_id, 'player2_points');
+            }
+
+            // Get updated game info
+            $updated_game = $gameModel->getById($game_id);
+            $player1_points = $updated_game['player1_points'];
+            $player2_points = $update_game['player2_points'];
+
+            // Check if game is complete
+            if (($player1_points >= 4 || $player2_points >= 4) && abs($player1_points - $player2_points) >= 2) {
+                // Update winner column of this game
+                $game_winner = $player1_points > $player2_points ? 1 : 2;
+                $gameModel->update($game_id, ['winner' => $game_winner]);
+
+                // Update number of games won for this set
+                $col = $player1_points > $player2_points ? 'player1_games' : 'player2_games';
+                $setModel->increment($set_id, $col);
+
+                // Get updated set info 
+                $updated_set = $setModel->getById($set_id);
+                $player1_games = $updated_set['player1_games'];
+                $player2_games = $updated_set['player2_games'];
+
+                // If this set is complete, start a new set and its first game
+                if (($player1_games >= 6 || $player2_games >= 6) && abs($player1_games - $player2_games) >= 2) {
+                    $set_winner = $player1_games > $player2_games ? 1 : 2;
+                    $setModel->update($set_id, ['winner' => $set_winner]);
+
+                    $col = $player1_games > $player2_games ? 'player1_sets' : 'player2_sets';
+                    $matchupModel->increment($matchup_id, $col);
+                }
+
+                // If this set is still ongoing, start a new game within this set
+
+            }
+            
+            header("Location: MatchupController.php?action=scorekeep&id=" . $matchup_id);
             break;
     }
 }
