@@ -9,13 +9,13 @@ tennis/
 │   │   └── PlayerController.php
 │   ├── layouts/
 │   │   ├── header.php ??
-│   │   ├── footer.php ??? lol
+│   │   ├── footer.php ??? 
 │   │   └── navigation.php ?? nav/tab bar
 │   ├── models/
-│   │   ├── BaseModel.php -- capitalized because class; base extended by all models
-│   │   ├── Player.php -- capitalized because class
+│   │   ├── BaseModel.php -- base extended by all models
+│   │   ├── Player.php --
 │   │   ├── Matchup.php
-│   │   └── ...      **** SET TABLENAME MUST BE ESCAPED WITH BACKTICKS (`set`) WHEN SET
+│   │   └── ...      **** SET TABLENAME MUST BE ESCAPED WITH BACKTICKS (`set`) 
 │   └── views/
 │       ├── matchups/
 │       │   ├── list.php
@@ -28,8 +28,8 @@ tennis/
     └── styles.css/
 
 
-    Controller structure:
-    <?php
+Controller structure:
+<?php
 require_once __DIR__ . '/../models/Player.php';
 
 $playerModel = new Player();
@@ -98,5 +98,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
     }
 }
-
-TODO: use bootstrap for form validation
