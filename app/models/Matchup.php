@@ -34,12 +34,11 @@ class Matchup extends Base {
 	/**
 	 * Increase a matchup score by one set for a particular player (identified as either 1 or 2).
 	 */
-	public function incrementSetsForPlayer($id, $player_number) {
-		if ($player_number == 1) {
-			return $this->update($id, ['player1_sets' => 'player1_sets + 1']);
-		} elseif ($player_number == 2) {
-			return $this->update($id, ['player2_sets' => 'player2_sets + 1']);
-		}
-	}
+	// public function incrementSetsForPlayer($id, $player_number) {
+	// 	$col = $player_number == 1 ? 'player1_sets' : 'player2_sets';
+	// 	$sql = "UPDATE $this->table SET $col = $col + 1 WHERE id = ?";
+	// 	$this->execute($sql, [$id], 'i');
+	// 	return true;
+	// }
 }
 

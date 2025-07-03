@@ -27,10 +27,10 @@ class Game extends Base {
 	/**
 	 * Increase a game score by one point for a particular player (identified as either 1 or 2).
 	 */
-	public function incrementPointsForPlayer($id, $player_number) {
-		$col = $player_number == 1 ? 'player1_points' : 'player2_points';
-		$sql = "UPDATE $this->table SET $col = $col + 1 WHERE id = ?";
-		$this->execute($sql, [$id], 'i');
-		return true;
-	}
+	// public function incrementPointsForPlayer($id, $player_number) {
+	// 	$col = $player_number == 1 ? 'player1_points' : 'player2_points';
+	// 	$sql = "UPDATE $this->table SET $col = $col + 1 WHERE id = ?";
+	// 	$this->execute($sql, [$id], 'i');
+	// 	return true;
+	// }
 }

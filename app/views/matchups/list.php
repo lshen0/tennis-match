@@ -18,7 +18,7 @@
                 <th class="subtitle">Ranking</th>
                 <th class="subtitle"><?php echo $team1['name']; ?></th>
                 <th class="subtitle"><?php echo $team2['name']; ?></th>
-                <th class="subtitle">Current Score</th>
+                <th class="subtitle">Score</th>
                 <th class="subtitle">Action</th>
                 <th class="subtitle">Winning Team</th>
             </tr>
@@ -47,6 +47,34 @@
             <?php endfor; ?>
         </table>
     </div>
+
+    <?php 
+    $allMatchupsComplete = true;
+    $team1_wins = 0;
+    $team2_wins = 0;
+    // Count wins for each team; maintain flag if if any winner is null
+    foreach ($matchups as $matchup) {
+        if (empty ($matchup['winner']) ) {
+            $allMatchupsComplete = false;
+        } elseif ($matchup['winner'] == 1) {
+            $team1_wins++;
+        } elseif ($matchup['winner'] == 2) {
+            $team2_wins++;
+        }
+    }
+
+    if ($allMatchupsComplete):
+        $winner = ($team1_wins > $team2_wins) ? $team1['name'] : $team2['name']; ?>
+        <div class="container text-center mt-4">
+            <div class="alert alert-success py-3">
+                <h6 class="mb-0">All matchups complete!</h6>
+            <h4 class="mt-2">Winning Team: <strong><?php echo $winner; ?></strong></h4>
+            <p class="mt-2">
+                <?php echo "{$team1['name']}: {$team1_wins} wins | {$team2['name']}: {$team2_wins} wins"; ?>
+            </p>
+            </div>
+        </div>
+    <?php endif; ?>
 
 </body>
 

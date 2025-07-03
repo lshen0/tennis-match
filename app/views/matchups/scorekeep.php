@@ -65,7 +65,7 @@
         <tr class="table-light small">
             <th class="text-start">Player</th>
             <?php for ($i = 0; $i < count($sets)-1; $i++): ?>
-                <th class="text-center"> <!-- empty header --> </th>
+                <th class="text-center"> Set <?php echo $i+1; ?></th>
             <?php endfor; ?>
             <th class="text-end">Games</th>
             <th class="text-end">Points</th>
@@ -102,22 +102,36 @@
 
     <!-- Scorekeeping Buttons -->
     <div class="container text-center" style="max-width: 750px;">
-        <form action="MatchupController.php" method="POST" style="display:inline;"> 
-            <input type="hidden" name="action" value="point">
-            <input type="hidden" name="player" value="1">
-            <input type="hidden" name="game_id" value="<?php echo $current_game['id']; ?>">
-            <button type="submit" class="btn btn-success me-2 py-3" style="width: 300px;"> 
-                Point for <?php echo $player1['lname']; ?>
-            </button>
-        </form>
-        <form action="MatchupController.php" method="POST" style="display:inline;"> 
-            <input type="hidden" name="action" value="point">
-            <input type="hidden" name="player" value="2">
-            <input type="hidden" name="game_id" value="<?php echo $current_game['id']; ?>">
-            <button type="submit" class="btn btn-success me-2 py-3" style="width: 300px;"> 
-                Point for <?php echo $player2['lname']; ?>
-            </button>
-        </form>
+        <?php if (!isset($matchup['winner'])): ?>
+            <form action="MatchupController.php" method="POST" style="display:inline;"> 
+                <input type="hidden" name="action" value="point">
+                <input type="hidden" name="player" value="1">
+                <input type="hidden" name="game_id" value="<?php echo $current_game['id']; ?>">
+                <button type="submit" class="btn btn-success me-2 py-3" style="width: 300px;"> 
+                    Point for <?php echo $player1['lname']; ?>
+                </button>
+            </form>
+            <form action="MatchupController.php" method="POST" style="display:inline;"> 
+                <input type="hidden" name="action" value="point">
+                <input type="hidden" name="player" value="2">
+                <input type="hidden" name="game_id" value="<?php echo $current_game['id']; ?>">
+                <button type="submit" class="btn btn-success me-2 py-3" style="width: 300px;"> 
+                    Point for <?php echo $player2['lname']; ?>
+                </button>
+            </form>
+        <?php else: ?>
+            <div class="alert alert-success py-3">
+                Match complete. <br>
+                Winner: 
+                <strong><?php echo ($matchup['winner'] == 1) ? $player1['lname'] : $player2['lname']; ?></strong>, 
+                <?php echo ($matchup['winner'] == 1) ? $team1['name'] : $team2['name']; ?>.<br>
+                Score: <?php foreach ($sets as $set) {
+                    $scoreArray[] = $set['player1_games'] . "-" . $set['player2_games'];
+                }
+                $score = implode(", ", $scoreArray);
+                echo $score; ?>.
+            </div>
+        <?php endif; ?>
     </div>
 
     <div class="mb-5"></div>
