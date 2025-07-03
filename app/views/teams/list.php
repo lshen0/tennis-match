@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../../includes/styles.css"> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-    <!-- TODO: factor this layout out into a partial team list layout to avoid code duplication -->
+    <!-- TODO: factor this layout out into a partial team list layout to avoid code duplication? -->
 </head>
 
 <body> 
@@ -45,11 +45,13 @@
                         <td><?php echo $player['phone']; ?></td>
                         <td>
                             <div class="d-flex justify-content-center gap-2">
-                                <a class="btn btn-success" href="../controllers/PlayerController.php?action=edit&id=<?php echo $player['id']; ?>">EDIT</a>
+                                <a class="btn btn-success <?php echo $_SESSION['matchupsGenerated'] ? 'disabled' : ''; ?>" 
+                                href="../controllers/PlayerController.php?action=edit&id=<?php echo $player['id']; ?>">EDIT</a>
                                 <form action="../controllers/PlayerController.php" method="POST" style="display:inline;">
                                     <input type="hidden" name="action" value="delete">
                                     <input type="hidden" name="id" value="<?php echo $player['id']; ?>">
-                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this player?');">
+                                    <button type="submit" class="btn btn-danger <?php echo $_SESSION['matchupsGenerated'] ? 'disabled' : ''; ?>" 
+                                    onclick="return confirm('Are you sure you want to delete this player?');">
                                         DELETE
                                     </button>
                                 </form>
@@ -109,11 +111,13 @@
                         <td><?php echo $player['phone']; ?></td>
                         <td>
                             <div class="d-flex justify-content-center gap-2">
-                                <a class="btn btn-success" href="../controllers/PlayerController.php?action=edit&id=<?php echo $player['id']; ?>">EDIT</a>
+                                <a class="btn btn-success <?php echo $_SESSION['matchupsGenerated'] ? 'disabled' : ''; ?>" 
+                                href="../controllers/PlayerController.php?action=edit&id=<?php echo $player['id']; ?>">EDIT</a>
                                 <form action="../controllers/PlayerController.php" method="POST" style="display:inline;">
                                     <input type="hidden" name="action" value="delete">
                                     <input type="hidden" name="id" value="<?php echo $player['id']; ?>">
-                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this player?');">
+                                    <button type="submit" class="btn btn-danger <?php echo $_SESSION['matchupsGenerated'] ? 'disabled' : ''; ?>" 
+                                    onclick="return confirm('Are you sure you want to delete this player?');">
                                         DELETE
                                     </button>
                                 </form>
@@ -148,7 +152,7 @@
             if (count($players_team1) == 7 && count($players_team2) == 7): 
                 if (!($_SESSION['matchupsGenerated'])): ?>
                 <a href="../controllers/MatchupController.php?action=generate" class="generate-button" 
-                    onclick="return confirm('Ready to generate matchups? This will pair players on opposite teams who share the same ranking. You CANNOT change player rankings after generating matchups!');">
+                    onclick="return confirm('Ready to generate matchups? This will pair players on opposite teams who share the same ranking. You CANNOT edit players after generating matchups!');">
                     Generate Matchups!
                 </a>
             <?php else: ?>

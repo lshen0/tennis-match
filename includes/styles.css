@@ -46,14 +46,6 @@ td.field {
     text-align: left;
 }
 
-/* force fixed width table columns */
-/* th.subtitle:nth-child(1), td:nth-child(1) { width: 10%; }  Ranking */
-/* th.subtitle:nth-child(2), td:nth-child(2) { width: 30%; }  Name */
-/* th.subtitle:nth-child(3), td:nth-child(3) { width: 20%; }  Email */
-/* th.subtitle:nth-child(4), td:nth-child(4) { width: 20%; }  Phone */
-/* th.subtitle:nth-child(5), td:nth-child(5), */
-/* th.subtitle:nth-child(6), td:nth-child(6) { width: 10%; text-align: center; } Action */
-
 label {
     margin-bottom: 5px;
 }
