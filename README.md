@@ -1,1 +1,1 @@
-### A tennis match management app
+### Tennis match management app
